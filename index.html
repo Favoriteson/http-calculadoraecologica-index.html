@@ -1,149 +1,132 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calculadora de Huella Ecológica</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://www.102nueve.com/wp-content/webp-express/webp-images/uploads/2024/03/concepto-de-economia-ecologica-1024x570.png.webp'); /* Cambia esta URL por la de una imagen real */
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 20px;
+        }
+        h1 {
+            color: #27ae60;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 10px;
+            border-radius: 10px;
+        }
+        form {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            color: #ecf0f1;
+        }
+        input {
+            padding: 5px;
+            margin-top: 5px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #2ecc71;
+        }
+        .result, .advice {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #2c3e50;
+            border-radius: 5px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .advice h3 {
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
-   
-<h1>Bienvenido, aquí podrás calcular tu huella ecológica y descubrir consejos prácticos para ser más sostenible.</h1>
+    <h1>Calculadora de Huella Ecológica</h1>
+    <h1>Bienvenido, para conocer tu huella ecológica solo debes llenar los siguientes campos.</h1>
+    
 
-                              <img src="Imagenes/huella.jpg" alt="">
+    <form id="huellaForm">
+        <label for="transporte">¿Cuántos kilómetros viajas en transporte privado por semana? (ej. auto, moto):</label>
+        <input type="number" id="transporte" placeholder="Kilómetros por semana">
 
-   <h1>Para conocer tu huella ecologica solo debes llenar los siguientes campos</h1>
+        <label for="energia">¿Cuántos kWh de energía consumes en tu hogar al mes?:</label>
+        <input type="number" id="energia" placeholder="kWh por mes">
 
-   <!DOCTYPE html>
-   <html lang="es">
-   <head>
-       <meta charset="UTF-8">
-       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <title>Calculadora de Huella Ecológica</title>
-       <style>
-           body {
-               font-family: Arial, sans-serif;
-               background-image: url('https://www.eleconomista.com.mx/export/sites/eleconomista/img/2023/06/05/branded-agua.jpg_465046116.jpg'); /* Cambia esta URL por la de una imagen real */
-               background-size: cover;
-               background-position: center;
-               color: #fff;
-               padding: 20px;
-           }
-           h1 {
-               color: #27ae60;
-               text-align: center;
-               background-color: rgba(0, 0, 0, 0.6);
-               padding: 10px;
-               border-radius: 10px;
-           }
-           form {
-               background-color: rgba(0, 0, 0, 0.7);
-               padding: 20px;
-               border-radius: 10px;
-               max-width: 400px;
-               margin: 0 auto;
-           }
-           label {
-               display: block;
-               margin-top: 10px;
-               color: #ecf0f1;
-           }
-           input {
-               padding: 5px;
-               margin-top: 5px;
-               width: 100%;
-               border: none;
-               border-radius: 5px;
-           }
-           button {
-               margin-top: 20px;
-               padding: 10px 20px;
-               background-color: #27ae60;
-               color: white;
-               border: none;
-               cursor: pointer;
-               border-radius: 5px;
-               width: 100%;
-           }
-           button:hover {
-               background-color: #2ecc71;
-           }
-           .result, .advice {
-               margin-top: 20px;
-               padding: 10px;
-               background-color: rgba(255, 255, 255, 0.8);
-               color: #2c3e50;
-               border-radius: 5px;
-               max-width: 400px;
-               margin: 0 auto;
-           }
-           .advice h3 {
-               margin-bottom: 10px;
-           }
-       </style>
-   </head>
-   <body>
-   
-       <h1>Calculadora de Huella Ecológica</h1>
-   
-       <form id="huellaForm">
-           <label for="transporte">¿Cuántos kilómetros viajas en transporte privado por semana? (ej. auto, moto):</label>
-           <input type="number" id="transporte" placeholder="Kilómetros por semana">
-   
-           <label for="energia">¿Cuántos kWh de energía consumes en tu hogar al mes?:</label>
-           <input type="number" id="energia" placeholder="kWh por mes">
-   
-           <label for="alimentos">¿Cuántas veces comes carne a la semana?:</label>
-           <input type="number" id="alimentos" placeholder="Veces por semana">
-   
-           <button type="button" onclick="calcularHuella()">Calcular Huella Ecológica</button>
-       </form>
-   
-       <div class="result" id="resultado"></div>
-       <div class="advice" id="consejos"></div>
-   
-       <script>
-           function calcularHuella() {
-               // Obtener los valores de entrada
-               const transporte = parseFloat(document.getElementById('transporte').value);
-               const energia = parseFloat(document.getElementById('energia').value);
-               const alimentos = parseFloat(document.getElementById('alimentos').value);
-   
-               // Validar los datos
-               if (isNaN(transporte) || isNaN(energia) || isNaN(alimentos)) {
-                   alert('Por favor, completa todos los campos.');
-                   return;
-               }
-   
-               // Calcular la huella ecológica (simplificada)
-               const huellaTransporte = transporte * 0.02;  // Ejemplo: 0.02 por km
-               const huellaEnergia = energia * 0.5;         // Ejemplo: 0.5 por kWh
-               const huellaAlimentos = alimentos * 5;       // Ejemplo: 5 por comida con carne
-   
-               const huellaTotal = huellaTransporte + huellaEnergia + huellaAlimentos;
-   
-               // Mostrar el resultado
-               document.getElementById('resultado').innerHTML = `Tu huella ecológica estimada es de <strong>${huellaTotal.toFixed(2)} unidades</strong>.`;
-   
-               // Dar consejos
-               let consejos = '<h3>Consejos para reducir tu huella ecológica:</h3><ul>';
-   
-               if (transporte > 50) {
-                   consejos += '<li>Reduce el uso del transporte privado. Considera usar bicicleta o transporte público.</li>';
-               }
-               if (energia > 200) {
-                   consejos += '<li>Optimiza el uso de energía en tu hogar. Apaga los aparatos eléctricos cuando no los uses y usa bombillas de bajo consumo.</li>';
-               }
-               if (alimentos > 5) {
-                   consejos += '<li>Reduce tu consumo de carne. Intenta incorporar más alimentos de origen vegetal en tu dieta.</li>';
-               }
-              
-               document.getElementById('consejos').innerHTML = consejos;
-           }
-       </script>
- <H1>Recuerda que una unidad ecologica es lo equivalente a una hectarea global (gha) y entre menor sea es menos dañina con el medio ambiente.</H1>
-   
-   </body>
-   </html>
+        <label for="alimentos">¿Cuántas veces comes carne a la semana?:</label>
+        <input type="number" id="alimentos" placeholder="Veces por semana">
 
+        <button type="button" onclick="calcularHuella()">Calcular Huella Ecológica</button>
+    </form>
+
+    <div class="result" id="resultado"></div>
+    <div class="advice" id="consejos"></div>
+
+    <script>
+        function calcularHuella() {
+            // Obtener los valores de entrada
+            const transporte = parseFloat(document.getElementById('transporte').value);
+            const energia = parseFloat(document.getElementById('energia').value);
+            const alimentos = parseFloat(document.getElementById('alimentos').value);
+
+            // Validar los datos
+            if (isNaN(transporte) || isNaN(energia) || isNaN(alimentos)) {
+                alert('Por favor, completa todos los campos.');
+                return;
+            }
+
+            // Calcular la huella ecológica en hectáreas globales (simplificada)
+            const huellaTransporte = transporte * 0.001;  // Ejemplo: 0.001 hectáreas globales por km recorrido por semana
+            const huellaEnergia = energia * 0.007;        // Ejemplo: 0.007 hectáreas globales por kWh consumido
+            const huellaAlimentos = alimentos * 0.02;     // Ejemplo: 0.02 hectáreas globales por cada comida con carne a la semana
+
+            const huellaTotal = huellaTransporte + huellaEnergia + huellaAlimentos;
+
+            // Mostrar el resultado en hectáreas globales
+            document.getElementById('resultado').innerHTML = `Tu huella ecológica estimada es de <strong>${huellaTotal.toFixed(2)} hectáreas globales</strong>.`;
+
+            // Dar consejos para reducir la huella ecológica
+            let consejos = '<h3>Consejos para reducir tu huella ecológica:</h3><ul>';
+
+            if (transporte > 50) {
+                consejos += '<li>Reduce el uso del transporte privado. Considera usar bicicleta o transporte público.</li>';
+            }
+            if (energia > 200) {
+                consejos += '<li>Optimiza el uso de energía en tu hogar. Apaga los aparatos eléctricos cuando no los uses y usa bombillas de bajo consumo.</li>';
+            }
+            if (alimentos > 5) {
+                consejos += '<li>Reduce tu consumo de carne. Intenta incorporar más alimentos de origen vegetal en tu dieta.</li>';
+            }
+            consejos += '</ul>';
+            document.getElementById('consejos').innerHTML = consejos;
+        }
+    </script>
+<H1>
+    Cada acción cuenta: una hectárea global mide el impacto ambiental y la capacidad de los recursos que sostenemos. Cuidemos nuestro planeta, el equilibrio depende de todos.</H1>
 </body>
 </html>
